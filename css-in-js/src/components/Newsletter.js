@@ -88,7 +88,34 @@ const Spectrum = styled.div`
   pointer-events: none;
 `;
 
-const Bar = styled.div``;
+const Bar = styled.div`
+  animation: ${jitter} 350ms ease-out infinite alternate;
+  height: 0.5em;
+  width: 20%;
+  transform-origin: bottom;
+  transition: all 1s;
+
+  &:nth-child(1n) {
+    background: ${color.spectrum1};
+    animation-delay: 0;
+  }
+  &:nth-child(2n) {
+    background: ${color.spectrum2};
+    animation-delay: 50ms;
+  }
+  &:nth-child(3n) {
+    background: ${color.spectrum3};
+    animation-delay: 100ms;
+  }
+  &:nth-child(4n) {
+    background: ${color.spectrum4};
+    animation-delay: 150ms;
+  }
+  &:nth-child(5n) {
+    background: ${color.spectrum5};
+    animation-delay: 200ms;
+  }
+`;
 
 export default function Newsletter(props) {
   const [email, setEmail] = React.useState("");
