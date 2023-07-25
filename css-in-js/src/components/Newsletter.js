@@ -33,7 +33,7 @@ const Container = styled.section`
 
 const Header = styled.header`
   position: relative;
-  color: #fff;
+  color: ${(props) => props.theme.header.fg || "#fff"};
   z-index: 1;
   text-transform: uppercase;
   font-size: 0.85em;
@@ -53,12 +53,12 @@ const Email = styled.input`
   width: 100%;
   margin: 0.15em;
   border: 1px solid black;
-  color: inherit;
-  background: inherit;
-  test-align: inherit;
+  color: ${(props) => props.theme.input.color || "inherit"};
+  background: ${(props) => props.theme.input.background || "inherit"};
+  test-align: ${(props) => props.theme.input.textAlign || "inherit"};
 
   &:focus {
-    outline: 2px solid #fff;
+    outline: ${(props) => props.theme.inputFocus.outline || "2px solid #fff"};
     outline-offset: 0.15em;
   }
 `;
@@ -90,7 +90,7 @@ const Spectrum = styled.div`
 
 const Bar = styled.div`
   animation: ${jitter} 350ms ease-out infinite alternate;
-  height: 0.5em;
+  height: ${(props) => (props.active ? "100%" : "0.5em")};
   width: 20%;
   transform-origin: bottom;
   transition: all 1s;
@@ -119,12 +119,12 @@ const Bar = styled.div`
 
 export default function Newsletter(props) {
   const [email, setEmail] = React.useState("");
-  //const emailPartsCount = countEmailParts(email);
+  const emailPartsCount = countEmailParts(email);
   return (
     <Container>
       <Spectrum aria-hidden>
         {Array.from(Array(5)).map((_, i) => (
-          <Bar key={i}></Bar>
+          <Bar active={i + 1 <= emailPartsCount} key={i}></Bar>
         ))}
       </Spectrum>
       <Header>
