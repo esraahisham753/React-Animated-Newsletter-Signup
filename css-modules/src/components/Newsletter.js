@@ -3,7 +3,7 @@ import { themr } from "@friendsofreactjs/react-css-themr";
 
 import css from "./Newsletter.module.css";
 
-function Newsletter() {
+function Newsletter(props) {
   const [email, setEmail] = React.useState("");
   const emailPartsCount = countEmailParts(email);
   return (

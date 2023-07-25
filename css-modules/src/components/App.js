@@ -5,6 +5,10 @@ import * as css from "./NewsletterOverride.module.css";
 
 import { ThemeProvider } from "@friendsofreactjs/react-css-themr";
 
+const theme = {
+  Newsletter: css
+}
+
 function App() {
   return (
     <div className="app__newsletter">
