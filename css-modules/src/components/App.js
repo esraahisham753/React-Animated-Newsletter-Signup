@@ -1,6 +1,13 @@
 import Head from "next/head";
 
 import Newsletter from "./Newsletter.js";
+import * as css from "./NewsletterOverride.module.css";
+
+import { ThemeProvider } from "@friendsofreactjs/react-css-themr";
+
+const theme = {
+  Newsletter: css
+}
 
 function App() {
   return (
@@ -9,7 +16,9 @@ function App() {
         <link rel="icon" type="image/png" href="/favicon.png" />
         <title>CSS Modules Example</title>
       </Head>
-      <Newsletter />
+      <ThemeProvider theme={theme}>
+        <Newsletter />
+      </ThemeProvider>
     </div>
   );
 }
