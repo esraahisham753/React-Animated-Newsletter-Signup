@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@friendsofreactjs/react-css-themr": "^4.3.3",
     "next": "13.1.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
